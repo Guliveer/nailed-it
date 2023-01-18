@@ -11,7 +11,7 @@ setInterval(function () {
 
 	img.fadeOut(1000, async function () {
 		img.attr("src", imgSrc);
-		await sleep(100);
+		await sleep(500);
 		img.fadeIn(1000);
 	});
 }, 15000);
