@@ -1,5 +1,0 @@
-# Install module
-pip install instaloader
-
-# Run module
-instaloader profile ed_paznokcie

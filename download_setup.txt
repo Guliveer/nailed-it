@@ -1,0 +1,7 @@
+# Zainstaluj Python oraz pip
+
+# Zainstaluj moduł
+pip install instaloader
+
+# Uruchom program
+instaloader nazwa_profilu

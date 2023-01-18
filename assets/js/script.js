@@ -1,12 +1,13 @@
 setInterval(function () {
-    // Scroll to top
-    window.scrollTo(0, 0);
+	window.scrollTo(0, 0);
 
-    // Select random photo
-    var imgNum = Math.floor(Math.random() * 200) + 1;
-    var imgSrc = "assets/img/pic (" + imgNum + ").jpg";
-    var imgTag = "<img src='" + imgSrc + "' alt=''>";
-    
-    $("#imgDisplay, #imgBg").html(imgTag)
-    
+	var img = $("#DisplaySrc, #BgSrc");
+	var imgNum = Math.ceil(Math.random() * imgCount);
+	console.log(imgNum);
+	var imgSrc = "ed_paznokcie/pic (" + imgNum + ").jpg";
+
+	img.fadeOut(1000, function () {
+		img.attr("src", imgSrc);
+		img.fadeIn(1000);
+	});
 }, 15000);
