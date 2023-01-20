@@ -4,4 +4,4 @@
 pip install instaloader
 
 # Uruchom program
-instaloader nazwa_profilu
+instaloader nazwa_profilu --dirname-pattern pictures
