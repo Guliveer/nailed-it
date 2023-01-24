@@ -1,7 +1,7 @@
 # Zainstaluj Python oraz pip
 
 # Zainstaluj moduł
-pip install instaloader
+instaloader nazwa_profilu --dirname-pattern pictures
 
 # Uruchom program
-instaloader nazwa_profilu --dirname-pattern pictures
+instaloader nazwa_profilu

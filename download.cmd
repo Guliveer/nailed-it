@@ -9,6 +9,7 @@ cls && set "params=%*" && cd /d "%~dp0" && ( if exist "%temp%\getadmin.vbs" del 
 if not exist %folder_name% mkdir %folder_name%
 cd %folder_name%
 del /q /f *
+
 cd ..
 
 call instaloader %profile% --dirname-pattern %folder_name% --no-resume --no-profile-pic --no-videos --no-captions --no-metadata-json --no-compress-json 
@@ -19,8 +20,13 @@ del /q /f /a:-d *.mp4
 del /q /f /a:-d *id
 del /q /f /a:-d *profile_pic.jpg
 
-echo Renaming files...
 for /f %%a in ('dir /b ^| find /c /v ""') do set file_count=%%a
+echo Renaming files [%file_count%]...
 for /l %%x in (1, 1, %file_count%) do ren "*.*" "pic (%%x).jpg" 2>nul
+
+cd ..
+
+echo Updating image count...
+echo let imgCount = %file_count%;> assets\js\imgCount.js
 
 exit
