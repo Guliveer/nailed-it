@@ -3,7 +3,9 @@ async function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-var lastImg = 0; // Declare a variable for later use (contains the last image number)
+// Declare a variables for later use
+var imgNum = 1;
+var lastImg = 1;
 
 // Interval for the images change
 setInterval(async function () {
@@ -11,7 +13,7 @@ setInterval(async function () {
 
 	// Pick a new image that's different from the last one
 	do {
-		imgNum = Math.ceil(Math.random() * imgCount); // Get a random image number between 1 and the number of images (imgCount -> from imgCount.js)
+		imgNum = Math.ceil(Math.random() * imgCount); // Get a random image number between 1 and the number of images (imgCount <- from imgCount.js)
 	} while (imgNum == lastImg); // Repeat until the image number is different from the last one
 
 	lastImg = imgNum; // Update the last image number
