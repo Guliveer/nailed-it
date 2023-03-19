@@ -28,26 +28,44 @@
 		<meta name="robots" content="noindex, nofollow" />
 		<meta name="author" content="Oliwer Pawelski" />
 
+		<script>
+			let iframe_args = 'frameborder="0" width="100%" height="100%"';
+			let offline = '<iframe id="offline" src="index.html" ' + iframe_args + "></iframe>";
+			let online = '<iframe id="online" src="https://guliveer.github.io/nailed-it/index.html" ' + iframe_args + "></iframe>";
+
+			function loadResources() {
+				var main = document.getElementById("main");
+				var connInfo = document.getElementById("connInfo");
+
+				if (navigator.onLine) {
+					// Device is online, so load resources from remote server
+					if (connInfo.innerHTML !== "online") {
+						main.innerHTML = online;
+						connInfo.innerHTML = "online";
+					}
+				} else {
+					// Device is offline, so load resources from local server
+					if (connInfo.innerHTML !== "offline") {
+						main.innerHTML = offline;
+						connInfo.innerHTML = "offline";
+					}
+				}
+			}
+
+			setInterval(function () {
+				loadResources();
+			}, 5000); // Check for connection every 5 seconds
+		</script>
+
 		<title>Nailed it!</title>
 	</head>
 
 	<body>
-		<script>
-			var iframe_args = 'frameborder="0" width="100%" height="100%"';
-			var offline = '<iframe src="index.html" ' + iframe_args + "></iframe>";
-			var online = '<iframe src="https://guliveer.github.io/nailed-it/" ' + iframe_args + "></iframe>";
+		<div id="connInfo" style="display: none"></div>
 
-			fetch("https://guliveer.github.io/nailed-it/")
-				.then((response) => {
-					if (response.ok) {
-						document.write(online);
-					} else {
-						document.write(offline);
-					}
-				})
-				.catch((error) => {
-					document.write(offline);
-				});
-		</script>
+		<div id="main"></div>
 	</body>
+	<script>
+		loadResources();
+	</script>
 </html>
