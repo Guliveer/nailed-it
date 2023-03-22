@@ -34,16 +34,7 @@
 		<title>Nailed it! | Display</title>
 	</head>
 
-	<body>
-		<script>
-			if (window.location.pathname === "/nailed-it/index.html" && window.location.search === "?status") {
-				const response = "ok";
-				const xhr = new XMLHttpRequest();
-				xhr.open("GET", window.location.href);
-				xhr.send(response);
-			}
-		</script>
-
+	<body onload="javascript:changeImg()">
 		<div class="watermark">
 			<img src="assets/logo/black-pink.png" alt="Nailed it!" />
 		</div>

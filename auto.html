@@ -60,12 +60,9 @@
 		<title>Nailed it!</title>
 	</head>
 
-	<body>
+	<body onload="javascript:loadResources()" ononline="javascript:loadResources()" onoffline="javascript:loadResources()">
 		<div id="connInfo" style="display: none"></div>
 
 		<div id="main"></div>
 	</body>
-	<script>
-		loadResources();
-	</script>
 </html>

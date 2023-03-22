@@ -7,8 +7,8 @@ async function sleep(ms) {
 var imgNum = 1;
 var lastImg = 1;
 
-// Interval for the images change
-setInterval(async function () {
+// Async function for changing the images
+async function changeImg() {
 	window.scrollTo(0, 0); // Scroll to the top of the page (just in case)
 
 	// Pick a new image that's different from the last one
@@ -27,4 +27,7 @@ setInterval(async function () {
 		await sleep(300);
 		img.fadeIn(1000);
 	});
-}, 15000);
+}
+
+// Interval for the images change
+setInterval(changeImg(), 15000);
