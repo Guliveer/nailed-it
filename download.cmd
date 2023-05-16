@@ -19,6 +19,8 @@ del /q /f /a:-d *.json*
 del /q /f /a:-d *.mp4
 del /q /f /a:-d *id
 del /q /f /a:-d *profile_pic.jpg
+del /q /f /a:-d 2021-12-14_15-55-46_UTC.jpg
+del /q /f /a:-d 2023-04-09_11-16-08_UTC.jpg
 
 for /f %%a in ('dir /b ^| find /c /v ""') do set file_count=%%a
 echo Renaming files [%file_count%]...
